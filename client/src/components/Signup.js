@@ -1,14 +1,14 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { useState } from 'react';
 
 function Signup({ setUser }) {
+    let history = useHistory();
     const [ formData, setFormData ] = useState({
         first_name: '',
         last_name: '',
         email: '',
         password: ''
     })
-    const [ errors, setErrors ] = useState('');
 
     function handleChange(e) {
         const key = e.target.name;
@@ -28,25 +28,16 @@ function Signup({ setUser }) {
         .then(res => {
             if (res.ok) {
                 res.json().then(setUser)
-                // changePageViews();
+                history.push("/")
             }
-            
-            // } else {
-            //     console.log(res.json())
-            //     // res.json().then(e => setErrors(Object.entries(e.error).flat()))
-            // }
         })
-    }
-// TRYING OUT USELOCATION TO REDIRECT AFTER SUBMISSION
-    // function changePageViews() {
-    //     let location = useLocation();
-    //     console.log(location)
-    //     useEffect(() => {
-    //         ga.send(["pageview", location.pathname]);
-    //     }, [location]);
-    // }
+        setFormData({
+            email: '',
+            password: ''
+        })
 
-   
+    }
+
     return (
         <div id="signup">
             <h2>Sign Up</h2>
@@ -55,10 +46,7 @@ function Signup({ setUser }) {
                 <input name="last_name" placeholder="Last Name" onChange={handleChange}></input>
                 <input name="email" placeholder="Email" onChange={handleChange}></input>
                 <input name="password" type="password" placeholder="Password" onChange={handleChange}></input>
-                <NavLink
-                to="/" 
-                exact
-                ><input type="submit" value="Sign Up"></input></NavLink>
+                <input type="submit" value="Sign Up"></input>
             </form>
         </div>
     )

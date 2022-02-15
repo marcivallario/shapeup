@@ -1,14 +1,23 @@
 import logo from '../assets/logo.png';
-import { NavLink } from "react-router-dom"
+import { NavLink, useHistory } from "react-router-dom"
 
-function NavBar() {
+function NavBar({ setUser }) {
+    let history = useHistory();
+    function handleLogout() {
+        fetch('/logout', {
+            method: 'DELETE'
+        })
+        .then(setUser(''))
+        .then(history.push('/'))
+    }
+    
     return (
         <div>
             <NavLink
                 to="/" 
                 exact
                 > 
-            <img src={logo} />
+            <img src={logo} alt="logo"/>
             </NavLink>
             <nav>
                 <p>Welcome, John Smith.</p>
@@ -43,6 +52,7 @@ function NavBar() {
                             }}> 
                         Signup
                         </NavLink></li>
+                    <li onClick={handleLogout}>Logout</li>
                 </ul>
             </nav>
         </div>

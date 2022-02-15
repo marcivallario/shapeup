@@ -20,15 +20,17 @@ function App() {
     })
   }, [])
 
+  console.log('App: ', user)
+
   return (
     <div className="App">
-      <NavBar />
+      <NavBar setUser={setUser}/>
       <Switch>
         <Route path='/signup'>
           {(!user) ? <Signup setUser={setUser} /> : <div></div>}
         </Route>
         <Route path='/login'>
-          {(!user) ? <Login /> : <div></div>}
+          {(!user) ? <Login setUser={setUser} /> : <div></div>}
         </Route>
         <Route exact path="/">
           {(!user) ? <Landing /> : <Home />}

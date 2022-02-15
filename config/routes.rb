@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   post '/users', to: 'users#create'
   post '/login', to: 'sessions#create'
+  delete '/logout', to: 'sessions#destroy'
   get '/auth', to: 'users#show'
   # Routing logic: fallback requests for React Router.
   # Leave this here to help deploy your app later!

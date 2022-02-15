@@ -1,5 +1,5 @@
 function Home() {
-    return(<div><p>Authenticaed USER HOME</p></div>)
+    return(<div><p>Authenticated USER HOME</p></div>)
 }
 
 export default Home;
