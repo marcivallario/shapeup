@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useHistory } from "react-router-dom";
+import { NavLink, useHistory } from "react-router-dom";
 
 function Login({ setUser }) {
     let history = useHistory();
@@ -38,6 +38,14 @@ function Login({ setUser }) {
                 <input name="password" type="password" placeholder="Password" onChange={handleChange}></input>
                 <input type="submit" value="Login"></input>
             </form>
+            <div id="call-to-signup">
+                <p>Not a member? <NavLink
+                            to="/signup" 
+                            exact
+                            activeStyle={{
+                            textDecoration: "underline",
+                            }}>Sign up now! </NavLink></p>
+            </div>
         </div>
     )
 }

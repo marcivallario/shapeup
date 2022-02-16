@@ -12,7 +12,6 @@ function App() {
   const [ user, setUser ] = useState('')
   const [ savedWorkouts, setSavedWorkouts ] = useState([])
   
-  const firstRender = useRef(true)
   useEffect(() => {
     fetch('/auth')
     .then(res => {
@@ -22,18 +21,14 @@ function App() {
     })}, [])
 
   useEffect(() => {
-     if (firstRender) {
-      firstRender.current = false;
-      return;
-    } else {
+     if (user.id) {
       fetch('/saved_workouts')
        .then(res => res.json())
        .then(workouts => setSavedWorkouts(workouts))
       }
-    }, [])
-  
+    }, [user])
 
-  console.log('App: ', user)
+  // console.log('App: ', user)
 
   return (
     <div className="App">
@@ -46,7 +41,7 @@ function App() {
           {(!user) ? <Login setUser={setUser} /> : <div></div>}
         </Route>
          <Route path='/generate-a-workout'>
-          <WorkoutGenerator />
+          <WorkoutGenerator user={user} setSavedWorkouts={setSavedWorkouts} savedWorkouts={savedWorkouts}/>
         </Route>
         <Route exact path="/">
           {(!user) ? <Landing /> : <Home savedWorkouts={savedWorkouts}/>}

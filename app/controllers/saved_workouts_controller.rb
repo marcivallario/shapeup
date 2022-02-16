@@ -13,8 +13,9 @@ class SavedWorkoutsController < ApplicationController
         render json: saved_workout
     end
 
-    def create
-        saved_workout = SavedWorkout.create!(workout_params)
+    def create 
+        auth_user = auth
+        saved_workout = auth_user.saved_workouts.create!(workout_params)
         render json: saved_workout
     end
 

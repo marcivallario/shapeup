@@ -21,6 +21,10 @@ wo3 = Workout.create(name: 'Bench Press', video_url: 'https://www.youtube.com/wa
 wo4 = Workout.create(name: 'Jump Rope', video_url: 'https://www.youtube.com/watch?v=u3zgHI8QnqE')
 wo5 = Workout.create(name: 'Flyaways', video_url: 'https://www.youtube.com/watch?v=M1CzdNm8huc')
 wo6 = Workout.create(name: 'Sit Ups', video_url: 'https://www.youtube.com/watch?v=1fbU_MkV7NE')
+wo7 = Workout.create(name: 'Lunge', video_url: 'https://www.youtube.com/watch?v=QOVaHwm-Q6U')
+wo8 = Workout.create(name: 'Push Up', video_url: 'https://www.youtube.com/watch?v=FaIpD_zfrJI')
+wo9 = Workout.create(name: 'Burpees', video_url:'https://www.youtube.com/watch?v=qLBImHhCXSw')
+wo10 = Workout.create(name: 'Pull-Ups', video_url: 'https://www.youtube.com/watch?v=Es_psmnCn20')
 
 mg1 = MuscleGroup.create(group_name: 'Abs')
 mg2 = MuscleGroup.create(group_name: 'Back')
@@ -34,6 +38,10 @@ tm3 = TargetMuscle.create(muscle_group_id: mg4.id, workout_id: wo3.id)
 tm4 = TargetMuscle.create(muscle_group_id: mg5.id, workout_id: wo4.id)
 tm5 = TargetMuscle.create(muscle_group_id: mg2.id, workout_id: wo5.id)
 tm6 = TargetMuscle.create(muscle_group_id: mg1.id, workout_id: wo6.id)
+tm7 = TargetMuscle.create(muscle_group_id: mg3.id, workout_id: wo7.id)
+tm8 = TargetMuscle.create(muscle_group_id: mg4.id, workout_id: wo8.id)
+tm9 = TargetMuscle.create(muscle_group_id: mg5.id, workout_id: wo9.id)
+tm10 = TargetMuscle.create(muscle_group_id: mg2.id, workout_id: wo10.id)
 
 
 puts "Seeding complete"
