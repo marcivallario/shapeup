@@ -20,6 +20,7 @@ wo2 = Workout.create(name: 'Squat', video_url: 'https://www.youtube.com/watch?v=
 wo3 = Workout.create(name: 'Bench Press', video_url: 'https://www.youtube.com/watch?v=ryUKqQ14Jts')
 wo4 = Workout.create(name: 'Jump Rope', video_url: 'https://www.youtube.com/watch?v=u3zgHI8QnqE')
 wo5 = Workout.create(name: 'Flyaways', video_url: 'https://www.youtube.com/watch?v=M1CzdNm8huc')
+wo6 = Workout.create(name: 'Sit Ups', video_url: 'https://www.youtube.com/watch?v=1fbU_MkV7NE')
 
 mg1 = MuscleGroup.create(group_name: 'Abs')
 mg2 = MuscleGroup.create(group_name: 'Back')
@@ -32,6 +33,7 @@ tm2 = TargetMuscle.create(muscle_group_id: mg3.id, workout_id: wo2.id)
 tm3 = TargetMuscle.create(muscle_group_id: mg4.id, workout_id: wo3.id)
 tm4 = TargetMuscle.create(muscle_group_id: mg5.id, workout_id: wo4.id)
 tm5 = TargetMuscle.create(muscle_group_id: mg2.id, workout_id: wo5.id)
+tm6 = TargetMuscle.create(muscle_group_id: mg1.id, workout_id: wo6.id)
 
 
 puts "Seeding complete"

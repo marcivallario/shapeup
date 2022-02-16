@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :workouts, only: [:show]
+  resources :muscle_groups, only: [:index]
   resources :saved_workouts
   post '/users', to: 'users#create'
   post '/login', to: 'sessions#create'
