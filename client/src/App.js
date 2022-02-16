@@ -9,16 +9,22 @@ import { useState, useEffect } from 'react'
 
 function App() {
   const [ user, setUser ] = useState('')
+  const [ savedWorkouts, setSavedWorkouts ] = useState([])
   
   useEffect(() => {
     fetch('/auth')
     .then(res => {
       if (res.ok) {
-        res.json().then(user => {
-          setUser(user)})
+        res.json().then(user => setUser(user))
       }
-    })
-  }, [])
+    })}, [])
+
+  useEffect(() => {
+    fetch('/saved_workouts')
+      .then(res => res.json())
+      .then(workouts => setSavedWorkouts(workouts))
+    }, [user])
+
 
   console.log('App: ', user)
 
@@ -33,7 +39,7 @@ function App() {
           {(!user) ? <Login setUser={setUser} /> : <div></div>}
         </Route>
         <Route exact path="/">
-          {(!user) ? <Landing /> : <Home />}
+          {(!user) ? <Landing /> : <Home savedWorkouts={savedWorkouts}/>}
         </Route>
       </Switch>
     </div>
