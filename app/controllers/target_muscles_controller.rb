@@ -1,0 +1,2 @@
+class TargetMusclesController < ApplicationController
+end

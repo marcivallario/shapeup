@@ -10,10 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_15_220232) do
+ActiveRecord::Schema.define(version: 2022_02_16_162311) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "muscle_groups", force: :cascade do |t|
+    t.string "group_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "saved_workouts", force: :cascade do |t|
     t.string "back_workout"
@@ -26,11 +32,25 @@ ActiveRecord::Schema.define(version: 2022_02_15_220232) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "target_muscles", force: :cascade do |t|
+    t.integer "muscle_group_id"
+    t.integer "workout_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email"
     t.string "password_digest"
     t.string "first_name"
     t.string "last_name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "workouts", force: :cascade do |t|
+    t.string "name"
+    t.string "video_url"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

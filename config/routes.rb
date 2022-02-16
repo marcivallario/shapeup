@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :workouts, only: [:show]
   resources :saved_workouts
   post '/users', to: 'users#create'
   post '/login', to: 'sessions#create'
