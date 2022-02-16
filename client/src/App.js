@@ -30,7 +30,7 @@ function App() {
 
   return (
     <div className="App">
-      <NavBar setUser={setUser}/>
+      <NavBar user={user} setUser={setUser}/>
       <Switch>
         <Route path='/signup'>
           {(!user) ? <Signup setUser={setUser} /> : <div></div>}
