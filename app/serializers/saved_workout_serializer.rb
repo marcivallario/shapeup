@@ -1,3 +1,3 @@
 class SavedWorkoutSerializer < ActiveModel::Serializer
-  attributes :id, :back_workout, :abs_workout, :chest_workout, :legs_workout, :cardio_workout, :user_id
+  attributes :id, :back_workout, :back_name, :abs_workout, :abs_name, :chest_workout, :chest_name, :legs_workout, :legs_name, :cardio_workout, :cardio_name, :user_id
 end

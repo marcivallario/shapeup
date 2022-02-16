@@ -6,7 +6,7 @@ import Login from "./components/Login"
 import WorkoutGenerator from './components/WorkoutGenerator';
 
 import { Route, Switch } from 'react-router-dom';
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect } from 'react'
 
 function App() {
   const [ user, setUser ] = useState('')

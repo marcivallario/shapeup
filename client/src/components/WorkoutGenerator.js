@@ -48,23 +48,32 @@ function WorkoutGenerator({ user, setSavedWorkouts, savedWorkouts }) {
     }
 
     function handleSaveWorkout() {
+        let newSaved = {
+            abs_workout: randomWorkout.abs.video_url,
+            abs_name: randomWorkout.abs.name,
+            chest_workout: randomWorkout.chest.video_url,
+            chest_name: randomWorkout.chest.name,
+            legs_workout: randomWorkout.legs.video_url,
+            legs_name: randomWorkout.legs.name,
+            back_workout: randomWorkout.back.video_url,
+            back_name: randomWorkout.back.name,
+            cardio_workout: randomWorkout.cardio.video_url,
+            cardio_name: randomWorkout.cardio.name
+        }
+        console.log('Beginning of Save - body to be sent: ', newSaved)
+
         fetch('/saved_workouts', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify({
-                abs_workout: randomWorkout.abs.video_url,
-                chest_workout: randomWorkout.chest.video_url,
-                legs_workout: randomWorkout.legs.video_url,
-                back_workout: randomWorkout.back.video_url,
-                cardio_workout: randomWorkout.cardio.video_url
-            })
+            body: JSON.stringify(newSaved)
         })
         .then(res => {
             if (res.ok) {
                 res.json()
                 .then(saved => {
+                    console.log('Server response after post: ', saved)
                     setSavedWorkouts([...savedWorkouts, saved])
                     history.push("/")
                 })

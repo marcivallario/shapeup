@@ -13,8 +13,6 @@ puts "Seeding..."
 u1 = User.create(email: 'marcivallario@gmail.com', first_name: 'Marci', last_name: 'Vallario', password: '123098')
 u2 = User.create(email: 'aweaver@gmail.com', first_name: 'Alex', last_name: 'Weaver', password: '1230987')
 
-w1 = SavedWorkout.create(back_workout: 'Flyaways', chest_workout: 'Bench Press', abs_workout: 'Russian Twists', legs_workout: 'Squats', cardio_workout: 'Burpees', user_id: u1.id)
-
 wo1 = Workout.create(name: 'Crunches', video_url: 'https://www.youtube.com/watch?v=Xyd_fa5zoEU')
 wo2 = Workout.create(name: 'Squat', video_url: 'https://www.youtube.com/watch?v=aclHkVaku9U')
 wo3 = Workout.create(name: 'Bench Press', video_url: 'https://www.youtube.com/watch?v=ryUKqQ14Jts')

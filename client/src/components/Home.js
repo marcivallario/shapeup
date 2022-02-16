@@ -17,7 +17,6 @@ function Home({ savedWorkouts }) {
         return (
             <div id="home">
                 {savedWorkouts.map(workout => {
-                    console.log('Map :', workout)
                     return <SavedWorkoutCard key={workout.id} workout={workout}/>
                 })}
             </div>
