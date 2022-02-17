@@ -67,3 +67,10 @@ nav ul a, nav ul button {
   font-weight: 500;
   letter-spacing: 1px;
 }
+
+/* Landing */
+#landing {
+  display: flex;
+  /* background-image: radial-gradient(ellipse at center left 100%, red 0, blue, green 100%) */
+}
+
