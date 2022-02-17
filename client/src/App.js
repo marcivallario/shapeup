@@ -4,6 +4,8 @@ import Signup from './components/Signup';
 import Home from './components/Home';
 import Login from "./components/Login"
 import WorkoutGenerator from './components/WorkoutGenerator';
+import WorkoutShow from './components/WorkoutShow';
+
 
 import { Route, Switch } from 'react-router-dom';
 import { useState, useEffect } from 'react'
@@ -11,12 +13,13 @@ import { useState, useEffect } from 'react'
 function App() {
   const [ user, setUser ] = useState('')
   const [ savedWorkouts, setSavedWorkouts ] = useState([])
-  
+
   useEffect(() => {
     fetch('/auth')
     .then(res => {
       if (res.ok) {
-        res.json().then(user => setUser(user))
+        res.json().then(user => {
+          setUser(user)})
       }
     })}, [])
 
@@ -28,7 +31,7 @@ function App() {
       }
     }, [user])
 
-  // console.log('App: ', user)
+  // console.log('User: ', user)
 
   return (
     <div className="App">
@@ -42,6 +45,9 @@ function App() {
         </Route>
          <Route path='/generate-a-workout'>
           <WorkoutGenerator user={user} setSavedWorkouts={setSavedWorkouts} savedWorkouts={savedWorkouts}/>
+        </Route>
+        <Route path='/saved-workouts/:workoutId'>
+            <WorkoutShow savedWorkouts={savedWorkouts} user={user}/>
         </Route>
         <Route exact path="/">
           {(!user) ? <Landing /> : <Home savedWorkouts={savedWorkouts}/>}

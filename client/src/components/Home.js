@@ -1,26 +1,19 @@
 import SavedWorkoutCard from "./SavedWorkoutCard"
 
+
 function Home({ savedWorkouts }) {
 
-    // function renderCards() {
-    //     if (savedWorkouts.length > 0) {
-    //         savedWorkouts.map(workout => {
-    //             console.log('Map :', workout)
-    //             return <SavedWorkoutCard />
-    //         })
-    //     } else {
-    //         return (<p>Save a Workout!</p>)
-    //     }
-    // }
+   if (savedWorkouts.length > 0) {
+       const renderWorkouts = savedWorkouts.map(workout => (
+            <li key={workout.id}>
+                <SavedWorkoutCard key={workout.id} workout={workout}/>
+            </li>
+        ));
 
-    if (savedWorkouts.length > 0) {
         return (
             <div id="home">
-                {savedWorkouts.map(workout => {
-                    return <SavedWorkoutCard key={workout.id} workout={workout}/>
-                })}
-            </div>
-        )
+                <ul>{renderWorkouts}</ul>
+            </div>);
     } else {
         return (
             <div id="home">

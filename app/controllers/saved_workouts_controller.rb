@@ -16,12 +16,17 @@ class SavedWorkoutsController < ApplicationController
     def create 
         auth_user = auth
         saved_workout = auth_user.saved_workouts.create!(workout_params)
-        render json: saved_workout
+        render json: saved_workout, status: :created
     end
 
     def update
-        saved_workout = SavedWorkout.update!(workout_params)
-        render json: saved_workout
+        saved_workout = SavedWorkout.find_by(id: params[:id])
+        if saved_workout 
+            saved_workout.update(workout_params)
+            render json: saved_workout, status: :ok
+        else
+            render json: { error: "Workout not found" }, status: :not_found
+        end
     end
 
     def destroy
