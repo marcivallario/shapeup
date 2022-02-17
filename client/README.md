@@ -1,3 +1,15 @@
+# Brand Identifiers
+
+## Colors
+Off-white: #F0F1F3
+Light green: #A7FF99
+Green('Up' in logo): #0BDD00
+Light grey: #616161
+Charcoal: #303030
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

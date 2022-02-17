@@ -48,22 +48,22 @@ function WorkoutShow({savedWorkouts, user}) {
                 <div id="abs">
                     <h3>Abs: {workout.abs_name}</h3>
                     <ReactPlayer url={workout.abs_workout}/>
-                    <button className="new-random-button" name="abs">Generate New Abs Exercise</button>
+                    <button className="new-random-button" name="abs" onClick={handleChange}>Generate New Abs Exercise</button>
                 </div>
                 <div id="chest">
                     <h3>Chest: {workout.chest_name}</h3>
                     <ReactPlayer url={workout.chest_workout}/>
-                    <button className="new-random-button" name="chest">Generate New Chest Exercise</button>
+                    <button className="new-random-button" name="chest" onClick={handleChange}>Generate New Chest Exercise</button>
                 </div>
                 <div id="legs">
                     <h3>Legs: {workout.legs_name}</h3>
                     <ReactPlayer url={workout.legs_workout}/>
-                    <button className="new-random-button" name="legs">Generate New Legs Exercise</button>
+                    <button className="new-random-button" name="legs" onClick={handleChange}>Generate New Legs Exercise</button>
                 </div>
                 <div id="cardio">
                     <h3>Cardio: {workout.cardio_name}</h3>
                     <ReactPlayer url={workout.cardio_workout}/>
-                    <button className="new-random-button" name="cardio">Generate New Cardio Exercise</button>
+                    <button className="new-random-button" name="cardio" onClick={handleChange}>Generate New Cardio Exercise</button>
                 </div>
                 <button onClick={handleUpdate}>Save Changes</button>
             </div>

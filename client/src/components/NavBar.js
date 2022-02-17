@@ -13,13 +13,15 @@ function NavBar({ user, setUser }) {
 
     if (user) {
         return (
-            <div>
-            <NavLink
-                to="/" 
-                exact
-                > 
-            <img src={logo} alt="logo"/>
-            </NavLink>
+            <div id="header">
+                <div id="logo-container">
+                    <NavLink
+                        to="/" 
+                        exact
+                        > 
+                        <img src={logo} alt="logo"/>
+                    </NavLink>
+                </div>
             <nav>
                 <p>Welcome, {user.first_name} {user.last_name}.</p>
                 <ul>
@@ -45,13 +47,15 @@ function NavBar({ user, setUser }) {
     }
     
     return (
-        <div>
-            <NavLink
-                to="/" 
-                exact
-                > 
-            <img src={logo} alt="logo"/>
-            </NavLink>
+        <div id="header">
+            <div id="logo-container">
+                    <NavLink
+                        to="/" 
+                        exact
+                        > 
+                        <img src={logo} alt="logo"/>
+                    </NavLink>
+                </div>
             <nav>
                 <ul>
                     <li><NavLink
@@ -74,7 +78,7 @@ function NavBar({ user, setUser }) {
                             activeStyle={{
                             textDecoration: "underline",
                             }}> 
-                        Login
+                        <button className="auth-button">Login</button>
                         </NavLink></li>
                     <li><NavLink
                             to="/signup" 
@@ -82,7 +86,7 @@ function NavBar({ user, setUser }) {
                             activeStyle={{
                             textDecoration: "underline",
                             }}> 
-                        Signup
+                        <button className="auth-button">Signup</button>
                         </NavLink></li>
                 </ul>
             </nav>
