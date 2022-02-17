@@ -1,7 +1,15 @@
 import icon from '../assets/workout_icon.png'
 import { Link } from "react-router-dom";
 
-function SavedWorkoutCard({ workout }) {
+function SavedWorkoutCard({ workout, onDelete }) {
+    
+    function handleDelete() {
+        fetch(`/saved_workouts/${workout.id}`, {
+            method: 'DELETE'
+            })
+        .then(onDelete(workout));
+    }
+
     return (
         <div className="saved-workout-card" workout={workout}>
             <Link to={`/saved-workouts/${workout.id}`}>
@@ -12,7 +20,7 @@ function SavedWorkoutCard({ workout }) {
                 <h5>Workout #{workout.id}</h5>
                 </div>
             </Link>
-            <button>X</button>
+            <button onClick={handleDelete}>X</button>
         </div>
     )
 }

@@ -1,12 +1,16 @@
 import SavedWorkoutCard from "./SavedWorkoutCard"
 
 
-function Home({ savedWorkouts }) {
+function Home({ savedWorkouts, setSavedWorkouts }) {
+
+    function onDelete(workoutToDelete) {
+        setSavedWorkouts(savedWorkouts.filter(workout => workout.id !== workoutToDelete.id))
+    }
 
    if (savedWorkouts.length > 0) {
        const renderWorkouts = savedWorkouts.map(workout => (
             <li key={workout.id}>
-                <SavedWorkoutCard key={workout.id} workout={workout}/>
+                <SavedWorkoutCard key={workout.id} workout={workout} onDelete={onDelete}/>
             </li>
         ));
 

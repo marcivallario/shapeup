@@ -31,6 +31,8 @@ function App() {
       }
     }, [user])
 
+
+
   // console.log('User: ', user)
 
   return (
@@ -50,7 +52,7 @@ function App() {
             <WorkoutShow savedWorkouts={savedWorkouts} user={user}/>
         </Route>
         <Route exact path="/">
-          {(!user) ? <Landing /> : <Home savedWorkouts={savedWorkouts}/>}
+          {(!user) ? <Landing /> : <Home savedWorkouts={savedWorkouts} setSavedWorkouts={setSavedWorkouts}/>}
         </Route>
       </Switch>
     </div>
