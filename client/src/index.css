@@ -70,7 +70,12 @@ nav ul a, nav ul button {
 
 /* Landing */
 #landing {
-  display: flex;
+  /* display: flex; */
   /* background-image: radial-gradient(ellipse at center left 100%, red 0, blue, green 100%) */
+}
+
+#landing-img-container {
+  float: left;
+  width: 50%;
 }
 
