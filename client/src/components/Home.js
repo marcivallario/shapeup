@@ -8,11 +8,13 @@ function Home({ savedWorkouts, setSavedWorkouts }) {
     }
 
    if (savedWorkouts.length > 0) {
-       const renderWorkouts = savedWorkouts.map(workout => (
+       
+       const renderWorkouts = savedWorkouts.map((workout, index) => {
+        return (
             <li key={workout.id}>
-                <SavedWorkoutCard key={workout.id} workout={workout} onDelete={onDelete}/>
+                <SavedWorkoutCard key={workout.id} workout={workout} onDelete={onDelete} number={index} />
             </li>
-        ));
+        )});
 
         return (
             <div id="home">
