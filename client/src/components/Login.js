@@ -17,13 +17,18 @@ function Login({ setUser }) {
             },
             body: JSON.stringify(loginData)
         })
-        .then(res => res.json())
-        .then(user => {
-            setUser(user)
-            history.push("/")
+        .then(res => {
+            if (res.ok) {
+                res.json().then(user => {
+                    setUser(user)
+                    history.push("/")
+                })
+            } else {
+                res.json().then(error => console.log(error))
+            }
         })
     }
-
+    
     function handleChange(e) {
         const key = e.target.name;
         const value = e.target.value;
