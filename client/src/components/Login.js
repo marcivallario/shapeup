@@ -29,8 +29,6 @@ function Login({ setUser }) {
             }
         })
     }
-
-    console.log(errors.error)
     
     function handleChange(e) {
         const key = e.target.name;

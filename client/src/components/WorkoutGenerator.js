@@ -49,7 +49,6 @@ function WorkoutGenerator({ user, setSavedWorkouts, savedWorkouts }) {
         fetch(`/${muscle_group}`)
         .then(res => res.json())
         .then(workout => {
-            console.log(workout)
             setRandomWorkout({...randomWorkout, [muscle_group]: workout})
         })
     }
@@ -67,7 +66,7 @@ function WorkoutGenerator({ user, setSavedWorkouts, savedWorkouts }) {
             cardio_workout: randomWorkout.cardio.video_url,
             cardio_name: randomWorkout.cardio.name
         }
-        console.log('Beginning of Save - body to be sent: ', newSaved)
+
 
         fetch('/saved_workouts', {
             method: 'POST',
@@ -80,7 +79,6 @@ function WorkoutGenerator({ user, setSavedWorkouts, savedWorkouts }) {
             if (res.ok) {
                 res.json()
                 .then(saved => {
-                    console.log('Server response after post: ', saved)
                     setSavedWorkouts([...savedWorkouts, saved])
                     history.push("/")
                 })
