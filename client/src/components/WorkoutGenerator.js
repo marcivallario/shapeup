@@ -93,7 +93,7 @@ function WorkoutGenerator({ user, setSavedWorkouts, savedWorkouts }) {
 
     return (
         <div id="workout-generator">
-            <h1>Generate a Workout</h1>
+            <h1 className="page-title">Generate a Workout</h1>
             <div className="accordion">
                 <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
                     <AccordionSummary
@@ -180,45 +180,6 @@ function WorkoutGenerator({ user, setSavedWorkouts, savedWorkouts }) {
                             }}><button id="login-to-save">Login to Save Workout</button></NavLink>}
         </div>
     )
-
-    
-    // return (
-    //     <div id="workout-generator">
-    //         <div id="random-workout">
-    //             <div id="back">
-    //                 <h3>Back: {randomWorkout.back.name}</h3>
-    //                 <ReactPlayer url={randomWorkout.back.video_url}/>
-    //                 <button className="new-random-button" name="back" onClick={handleGenerateNew}>Generate New Back Exercise</button>
-    //             </div> 
-    //             <div id="abs">
-    //                 <h3>Abs: {randomWorkout.abs.name}</h3>
-    //                 <ReactPlayer url={randomWorkout.abs.video_url}/>
-    //                 <button className="new-random-button" name="abs" onClick={handleGenerateNew}>Generate New Abs Exercise</button>
-    //             </div>
-    //             <div id="chest">
-    //                 <h3>Chest: {randomWorkout.chest.name}</h3>
-    //                 <ReactPlayer url={randomWorkout.chest.video_url}/>
-    //                 <button className="new-random-button" name="chest" onClick={handleGenerateNew}>Generate New Chest Exercise</button>
-    //             </div>
-    //             <div id="legs">
-    //                 <h3>Legs: {randomWorkout.legs.name}</h3>
-    //                 <ReactPlayer url={randomWorkout.legs.video_url}/>
-    //                 <button className="new-random-button" name="legs" onClick={handleGenerateNew}>Generate New Legs Exercise</button>
-    //             </div>
-    //             <div id="cardio">
-    //                 <h3>Cardio: {randomWorkout.cardio.name}</h3>
-    //                 <ReactPlayer url={randomWorkout.cardio.video_url}/>
-    //                 <button className="new-random-button" name="cardio" onClick={handleGenerateNew}>Generate New Cardio Exercise</button>
-    //             </div>
-    //         </div>
-    //         {user ? <button onClick={handleSaveWorkout}>Save Workout</button> : <NavLink
-    //                         to="/login" 
-    //                         exact
-    //                         activeStyle={{
-    //                         textDecoration: "underline",
-    //                         }}><button>Login to Save Workout</button></NavLink>}
-    //     </div>
-    // )
 }
 
 export default WorkoutGenerator;

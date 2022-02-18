@@ -12,15 +12,20 @@ function SavedWorkoutCard({ workout, onDelete, number }) {
 
     return (
         <div className="saved-workout-card" workout={workout}>
-            <Link to={`/saved-workouts/${workout.id}`}>
+            
                 <div className="saved-card-details">
-                    <div id="workout-card-img-container">
-                        <img src={icon} alt="Saved Workout" />
+                    <Link to={`/saved-workouts/${workout.id}`}>
+                        <div className="workout-card-img-container">
+                            <img src={icon} alt="Saved Workout" />
+                        </div>
+                    </Link>
+                    <div className="card-label">
+                        <Link to={`/saved-workouts/${workout.id}`}><h5>Workout #{number + 1}</h5></Link>
+                        <button onClick={handleDelete}>X</button>
                     </div>
-                <h5>Workout #{number + 1}</h5>
                 </div>
-            </Link>
-            <button onClick={handleDelete}>X</button>
+            
+            
         </div>
     )
 }
