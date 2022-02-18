@@ -43,7 +43,7 @@ p, li, a {
 }
 
 .green-accent {
-  color: #0ac900;
+  color: #0BDD00;
 }
 
 /* NavBar */
@@ -64,6 +64,7 @@ nav ul {
   padding: 0;
   display: flex;
   gap: 50px;
+  align-items: center;
 }
 
 nav ul a, nav ul button {
@@ -81,10 +82,8 @@ nav ul a:hover {
 }
 
 nav ul a.active {
-  text-decoration: none !important;
-  font-style: italic;
-  color: #616161;
-  font-weight: 500;
+  text-decoration: underline;
+  text-underline-offset: 10px;
 }
 
 .auth-button {
@@ -103,6 +102,11 @@ nav ul a.active {
 .auth-button:active {
   background-color: transparent;
   box-shadow: inset 0 0 0 2px #0BDD00;
+}
+
+#welcome-greeting {
+  font-style: italic;
+  color: #616161;
 }
 
 
@@ -151,5 +155,81 @@ nav ul a.active {
   margin-top: 10%;
 }
 
+/* Workout Generator */
+#workout-generator {
+  padding: 4rem;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
 
+#workout-generator h1 {
+  font-size: 50px;
+  margin-bottom: 70px;
+  letter-spacing: 3px;
+  border: 5px solid #0BDD00;
+  padding: 15px 25px;
+}
+
+.accordion {
+  width: 60%;
+}
+
+.random-workout-details {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+.new-random-button {
+  margin-top: 15px;
+  border: none;
+  background-color: #303030;
+  color: #F0F1F3;
+  padding: 5px 15px;
+  cursor: pointer;
+  font-family: 'Zen Kaku Gothic Antique', sans-serif;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.new-random-button:hover {
+  background-color: #0BDD00;
+  color: #303030;
+}
+
+.new-random-button:active {
+  background-color: transparent;
+  box-shadow: inset 0 0 0 2px #0BDD00;
+  color: #0BDD00;
+}
+
+#save-workout, #login-to-save {
+  margin-top: 40px;
+  border: none;
+  background-color: #303030;
+  color: #F0F1F3;
+  padding: 20px 30px;
+  cursor: pointer;
+  font-family: 'Zen Kaku Gothic Antique', sans-serif;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+#save-workout:hover, #login-to-save:hover {
+  background-color: #0BDD00;
+  color: #303030;
+}
+
+#save-workout:active, #login-to-save:active {
+  background-color: transparent;
+  box-shadow: inset 0 0 0 2px #0BDD00;
+  color: #0BDD00;
+}
 

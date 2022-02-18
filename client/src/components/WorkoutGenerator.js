@@ -1,33 +1,40 @@
 import { useEffect, useState } from 'react';
 import { NavLink, useHistory } from "react-router-dom"
-
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ReactPlayer from "react-player";
 
 function WorkoutGenerator({ user, setSavedWorkouts, savedWorkouts }) {
     let history = useHistory();
     const [ randomWorkout, setRandomWorkout ] = useState({
-    abs: {
-      name:'',
-      video_url: ''
-    },
-    chest: {
-       name:'',
-      video_url: ''
-    },
-    back: {
-       name:'',
-      video_url: ''
-    },
-    legs: {
-       name:'',
-      video_url: ''
-    },
-    cardio: {
-       name:'',
-      video_url: ''
-    }
-  })
-    console.log('WO: ', randomWorkout)
+        abs: {
+        name:'',
+        video_url: ''
+        },
+        chest: {
+        name:'',
+        video_url: ''
+        },
+        back: {
+        name:'',
+        video_url: ''
+        },
+        legs: {
+        name:'',
+        video_url: ''
+        },
+        cardio: {
+        name:'',
+        video_url: ''
+        }
+    })
+    const [expanded, setExpanded] = useState(false);
+
+    const handleChange = (panel) => (event, isExpanded) => {
+        setExpanded(isExpanded ? panel : false);
+    };
 
     useEffect(() => {
     fetch('/muscle_groups')
@@ -84,44 +91,134 @@ function WorkoutGenerator({ user, setSavedWorkouts, savedWorkouts }) {
         })
     }
 
-    
     return (
         <div id="workout-generator">
-            <div id="random-workout">
-                <div id="back">
-                    <h3>Back: {randomWorkout.back.name}</h3>
-                    <ReactPlayer url={randomWorkout.back.video_url}/>
-                    <button className="new-random-button" name="back" onClick={handleGenerateNew}>Generate New Back Exercise</button>
-                </div> 
-                <div id="abs">
-                    <h3>Abs: {randomWorkout.abs.name}</h3>
-                    <ReactPlayer url={randomWorkout.abs.video_url}/>
-                    <button className="new-random-button" name="abs" onClick={handleGenerateNew}>Generate New Abs Exercise</button>
-                </div>
-                <div id="chest">
-                    <h3>Chest: {randomWorkout.chest.name}</h3>
-                    <ReactPlayer url={randomWorkout.chest.video_url}/>
-                    <button className="new-random-button" name="chest" onClick={handleGenerateNew}>Generate New Chest Exercise</button>
-                </div>
-                <div id="legs">
-                    <h3>Legs: {randomWorkout.legs.name}</h3>
-                    <ReactPlayer url={randomWorkout.legs.video_url}/>
-                    <button className="new-random-button" name="legs" onClick={handleGenerateNew}>Generate New Legs Exercise</button>
-                </div>
-                <div id="cardio">
-                    <h3>Cardio: {randomWorkout.cardio.name}</h3>
-                    <ReactPlayer url={randomWorkout.cardio.video_url}/>
-                    <button className="new-random-button" name="cardio" onClick={handleGenerateNew}>Generate New Cardio Exercise</button>
-                </div>
+            <h1>Generate a Workout</h1>
+            <div className="accordion">
+                <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
+                    <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel1bh-content"
+                    id="panel1bh-header"
+                    >
+                        <h3>Back: <span className="green-accent">{randomWorkout.back.name}</span></h3> 
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <div className="random-workout-details">
+                            <ReactPlayer url={randomWorkout.back.video_url}/>
+                            <button className="new-random-button" name="back" onClick={handleGenerateNew}>Generate New Back Exercise</button>
+                        </div>
+                    </AccordionDetails>
+                </Accordion>
+                <Accordion expanded={expanded === 'panel2'} onChange={handleChange('panel2')}>
+                    <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel2bh-content"
+                    id="panel2bh-header"
+                    >
+                        <h3>Abs: <span className="green-accent">{randomWorkout.abs.name}</span></h3>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <div className="random-workout-details">
+                            <ReactPlayer url={randomWorkout.abs.video_url}/>
+                            <button className="new-random-button" name="abs" onClick={handleGenerateNew}>Generate New Abs Exercise</button>
+                        </div>
+                    </AccordionDetails>
+                </Accordion>
+                <Accordion expanded={expanded === 'panel3'} onChange={handleChange('panel3')}>
+                    <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel3bh-content"
+                    id="panel3bh-header"
+                    >
+                        <h3>Chest: <span className="green-accent">{randomWorkout.chest.name}</span></h3>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <div className="random-workout-details">
+                            <ReactPlayer url={randomWorkout.chest.video_url}/>
+                            <button className="new-random-button" name="chest" onClick={handleGenerateNew}>Generate New Chest Exercise</button>
+                        </div>
+                    </AccordionDetails>
+                </Accordion>
+                <Accordion expanded={expanded === 'panel4'} onChange={handleChange('panel4')}>
+                    <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel4bh-content"
+                    id="panel4bh-header"
+                    >
+                        <h3>Legs: <span className="green-accent">{randomWorkout.legs.name}</span></h3>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <div className="random-workout-details">
+                            <ReactPlayer url={randomWorkout.legs.video_url}/>
+                            <button className="new-random-button" name="legs" onClick={handleGenerateNew}>Generate New Legs Exercise</button>
+                        </div>
+                    </AccordionDetails>
+                </Accordion>
+                <Accordion expanded={expanded === 'panel5'} onChange={handleChange('panel5')}>
+                    <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel5bh-content"
+                    id="panel5bh-header"
+                    >
+                        <h3>Cardio: <span className="green-accent">{randomWorkout.cardio.name}</span></h3>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <div className="random-workout-details">
+                            <ReactPlayer url={randomWorkout.cardio.video_url}/>
+                            <button className="new-random-button" name="cardio" onClick={handleGenerateNew}>Generate New Cardio Exercise</button>
+                        </div>
+                    </AccordionDetails>
+                </Accordion>
             </div>
-            {user ? <button onClick={handleSaveWorkout}>Save Workout</button> : <NavLink
+            
+            {user ? <button id="save-workout" onClick={handleSaveWorkout}>Save Workout</button> : <NavLink
                             to="/login" 
                             exact
                             activeStyle={{
                             textDecoration: "underline",
-                            }}><button>Login to Save Workout</button></NavLink>}
+                            }}><button id="login-to-save">Login to Save Workout</button></NavLink>}
         </div>
     )
+
+    
+    // return (
+    //     <div id="workout-generator">
+    //         <div id="random-workout">
+    //             <div id="back">
+    //                 <h3>Back: {randomWorkout.back.name}</h3>
+    //                 <ReactPlayer url={randomWorkout.back.video_url}/>
+    //                 <button className="new-random-button" name="back" onClick={handleGenerateNew}>Generate New Back Exercise</button>
+    //             </div> 
+    //             <div id="abs">
+    //                 <h3>Abs: {randomWorkout.abs.name}</h3>
+    //                 <ReactPlayer url={randomWorkout.abs.video_url}/>
+    //                 <button className="new-random-button" name="abs" onClick={handleGenerateNew}>Generate New Abs Exercise</button>
+    //             </div>
+    //             <div id="chest">
+    //                 <h3>Chest: {randomWorkout.chest.name}</h3>
+    //                 <ReactPlayer url={randomWorkout.chest.video_url}/>
+    //                 <button className="new-random-button" name="chest" onClick={handleGenerateNew}>Generate New Chest Exercise</button>
+    //             </div>
+    //             <div id="legs">
+    //                 <h3>Legs: {randomWorkout.legs.name}</h3>
+    //                 <ReactPlayer url={randomWorkout.legs.video_url}/>
+    //                 <button className="new-random-button" name="legs" onClick={handleGenerateNew}>Generate New Legs Exercise</button>
+    //             </div>
+    //             <div id="cardio">
+    //                 <h3>Cardio: {randomWorkout.cardio.name}</h3>
+    //                 <ReactPlayer url={randomWorkout.cardio.video_url}/>
+    //                 <button className="new-random-button" name="cardio" onClick={handleGenerateNew}>Generate New Cardio Exercise</button>
+    //             </div>
+    //         </div>
+    //         {user ? <button onClick={handleSaveWorkout}>Save Workout</button> : <NavLink
+    //                         to="/login" 
+    //                         exact
+    //                         activeStyle={{
+    //                         textDecoration: "underline",
+    //                         }}><button>Login to Save Workout</button></NavLink>}
+    //     </div>
+    // )
 }
 
 export default WorkoutGenerator;

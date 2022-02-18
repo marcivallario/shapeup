@@ -24,7 +24,7 @@ function NavBar({ user, setUser }) {
                 </div>
             <nav>
                 <ul>
-                    <li>Welcome, {user.first_name} {user.last_name}.</li>
+                    <li id="welcome-greeting">Welcome, {user.first_name} {user.last_name}.</li>
                     <li><NavLink
                             to="/" 
                             exact
