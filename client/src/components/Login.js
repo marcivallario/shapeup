@@ -37,19 +37,21 @@ function Login({ setUser }) {
     
     return (
         <div id="login">
-            <h2>Login</h2>
-            <form id="login-form" onSubmit={handleSubmit}>
-                <input name="email" placeholder="Email" onChange={handleChange}></input>
-                <input name="password" type="password" placeholder="Password" onChange={handleChange}></input>
-                <input type="submit" value="Login"></input>
-            </form>
-            <div id="call-to-signup">
-                <p>Not a member? <NavLink
-                            to="/signup" 
-                            exact
-                            activeStyle={{
-                            textDecoration: "underline",
-                            }}>Sign up now! </NavLink></p>
+            <div id="login-container">
+                <h1>Login</h1>
+                <form id="login-form" onSubmit={handleSubmit}>
+                    <input name="email" placeholder="Email" className="user-input" onChange={handleChange}></input>
+                    <input name="password" type="password" placeholder="Password" className="user-input" onChange={handleChange}></input>
+                    <input type="submit" value="Login" className="form-button"></input>
+                </form>
+                <div id="call-to-signup">
+                    <p>Not a member? <NavLink
+                                to="/signup" 
+                                exact
+                                activeStyle={{
+                                textDecoration: "underline",
+                                }}>Sign up now! </NavLink></p>
+                </div>
             </div>
         </div>
     )

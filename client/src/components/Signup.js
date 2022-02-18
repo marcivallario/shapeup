@@ -40,21 +40,23 @@ function Signup({ setUser }) {
 
     return (
         <div id="signup">
-            <h2>Sign Up</h2>
-            <form id="signup-form" onSubmit={handleSubmit}>
-                <input name="first_name" placeholder="First Name" onChange={handleChange}></input>
-                <input name="last_name" placeholder="Last Name" onChange={handleChange}></input>
-                <input name="email" placeholder="Email" onChange={handleChange}></input>
-                <input name="password" type="password" placeholder="Password" onChange={handleChange}></input>
-                <input type="submit" value="Sign Up"></input>
-            </form>
-            <div id="call-to-login">
-                <p>Already a member? <NavLink
-                            to="/login" 
-                            exact
-                            activeStyle={{
-                            textDecoration: "underline",
-                            }}>Log in here. </NavLink></p>
+            <div id="signup-container">
+                <h1>Sign Up</h1>
+                <form id="signup-form" onSubmit={handleSubmit}>
+                    <input name="first_name" placeholder="First Name" className="user-input" onChange={handleChange}></input>
+                    <input name="last_name" placeholder="Last Name" className="user-input" onChange={handleChange}></input>
+                    <input name="email" placeholder="Email" className="user-input" onChange={handleChange}></input>
+                    <input name="password" type="password" placeholder="Password" className="user-input" onChange={handleChange}></input>
+                    <input type="submit" value="Sign Up" className="form-button"></input>
+                </form>
+                <div id="call-to-login">
+                    <p>Already a member? <NavLink
+                                to="/login" 
+                                exact
+                                activeStyle={{
+                                textDecoration: "underline",
+                                }}>Log in here. </NavLink></p>
+                </div>
             </div>
         </div>
     )

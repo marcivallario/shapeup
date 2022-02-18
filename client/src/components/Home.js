@@ -16,7 +16,8 @@ function Home({ savedWorkouts, setSavedWorkouts }) {
 
         return (
             <div id="home">
-                <h1>My Saved <span className="green-accent">Workouts</span></h1>
+                <h1>Dashboard</h1>
+                <h2>Saved <span className="green-accent">Workouts</span></h2>
                 <div id="cards-container">
                     {renderWorkouts}
                 </div>

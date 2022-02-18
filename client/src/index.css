@@ -19,6 +19,10 @@ body {
   background-color: #F0F1F3;
 }
 
+html, body {
+  height: 100%;
+}
+
 #landing-container, #home {
   max-width: 1200px;
   min-width: 750px;
@@ -82,7 +86,7 @@ nav ul {
   align-items: center;
 }
 
-nav ul a, nav ul button {
+nav ul a, .auth-button {
   text-decoration: none;
   text-transform: uppercase;
   font-weight: 800;
@@ -107,6 +111,7 @@ nav ul a.active {
   color: #F0F1F3;
   padding: 5px 15px;
   cursor: pointer;
+  transition: all .2s ease-in-out;
 }
 
 .auth-button:hover {
@@ -202,6 +207,7 @@ nav ul a.active {
   text-transform: uppercase;
   font-weight: 800;
   letter-spacing: 3px;
+  transition: all .2s ease-in-out;
 }
 
 .new-random-button:hover {
@@ -227,6 +233,7 @@ nav ul a.active {
   text-transform: uppercase;
   font-weight: 800;
   letter-spacing: 3px;
+  transition: all .2s ease-in-out;
 }
 
 #save-workout:hover, #login-to-save:hover, #save-changes:hover {
@@ -252,7 +259,7 @@ nav ul a.active {
   text-transform: uppercase;
   font-weight: 800;
   letter-spacing: 3px;
-
+  transition: all .2s ease-in-out;
 }
 
 /* Home - Empty */
@@ -295,7 +302,7 @@ nav ul a.active {
   padding: 50px;
   display: flex;
   flex-flow: column;
-  align-items: center;
+  /* align-items: center; */
 }
 
 #home h1 {
@@ -303,6 +310,11 @@ nav ul a.active {
   margin-bottom: 70px;
   letter-spacing: 3px;
   text-align: center;
+}
+
+#home h2 {
+  font-size: 30px;
+  margin-bottom: 30px;
 }
 
 .saved-workout-card {
@@ -333,7 +345,92 @@ nav ul a.active {
   border: none;
   padding: 5px 10px;
   cursor: pointer;
+  transition: all .2s ease-in-out;
 }
+
+.card-label button:hover {
+  background-color: #0BDD00;
+  color: #303030
+}
+
+.card-label button:active {
+  background-color: #A7FF99;
+  color: #303030;
+}
+
+/* Login & Signup*/
+#login, #signup {
+  height: 40vh;
+}
+
+#login-container, #signup-container {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  position: relative;
+  top: 50%;
+}
+
+#login-container h1, #signup-container h1 {
+  margin-bottom: 20px;
+  font-size: 40px;
+}
+
+#login-form, #signup-form {
+  display: flex;
+  flex-flow: column;
+  padding: 15px;
+  width: 300px;
+}
+
+.user-input {
+  border: none;
+	border-bottom: 2px solid #0BDD00;
+	background: none;
+	padding: 10px;
+	padding-left: 24px;
+  font-style: italic;
+	transition: .2s;
+}
+
+.user-input:active,
+.user-input:focus,
+.user-input:hover {
+	outline: none;
+	border-bottom-color: #616161;
+}
+
+.form-button {
+  border: none;
+  background-color: #0BDD00;
+  color: #303030;
+  padding: 5px 15px;
+  cursor: pointer;
+  font-family: 'Zen Kaku Gothic Antique', sans-serif;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 3px;
+  margin-top: 20px;
+  transition: all .2s ease-in-out;
+}
+
+.form-button:hover {
+  background-color: #303030;
+  color: #F0F1F3;
+}
+
+.form-button:active {
+  background-color: transparent;
+  box-shadow: inset 0 0 0 2px #0BDD00;
+  color:#0BDD00;
+}
+
+#call-to-signup, #call-to-login {
+  margin-top: 30px;
+}
+
+
 
 
 
