@@ -170,8 +170,8 @@ nav ul a.active {
   margin-top: 10%;
 }
 
-/* Workout Generator */
-#workout-generator {
+/* Workout Generator & Workout Show */
+#workout-generator, #workout-review {
   padding: 4rem;
   display: flex;
   flex-flow: column;
@@ -182,7 +182,7 @@ nav ul a.active {
   width: 60%;
 }
 
-.random-workout-details {
+.random-workout-details, .saved-workout-details {
   display: flex;
   flex-flow: column;
   align-items: center;
@@ -215,7 +215,7 @@ nav ul a.active {
   color: #0BDD00;
 }
 
-#save-workout, #login-to-save {
+#save-workout, #login-to-save, #save-changes {
   margin-top: 40px;
   border: none;
   background-color: #303030;
@@ -229,15 +229,30 @@ nav ul a.active {
   letter-spacing: 3px;
 }
 
-#save-workout:hover, #login-to-save:hover {
+#save-workout:hover, #login-to-save:hover, #save-changes:hover {
   background-color: #0BDD00;
   color: #303030;
 }
 
-#save-workout:active, #login-to-save:active {
+#save-workout:active, #login-to-save:active, #save-changes:active {
   background-color: transparent;
   box-shadow: inset 0 0 0 2px #0BDD00;
   color: #0BDD00;
+}
+
+#changes-saved {
+  background-color: #A7FF99;
+  cursor: none;
+  margin-top: 40px;
+  border: none;
+  color: #303030;
+  padding: 20px 30px;
+  font-family: 'Zen Kaku Gothic Antique', sans-serif;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 3px;
+
 }
 
 /* Home - Empty */
