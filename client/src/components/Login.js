@@ -7,7 +7,7 @@ function Login({ setUser }) {
         email: '',
         password: ''
     })
-    const [ errors, setErrors ] = useState({})
+    const [ errors, setErrors ] = useState(null)
     
     function handleSubmit(e) {
         e.preventDefault();
