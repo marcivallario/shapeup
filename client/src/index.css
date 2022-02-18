@@ -430,6 +430,17 @@ nav ul a.active {
   margin-top: 30px;
 }
 
+.error-container {
+  font-size: 14px;
+  font-style: italic;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.error {
+  color: #e20000;
+}
+
 
 
 

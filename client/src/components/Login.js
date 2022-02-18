@@ -7,6 +7,7 @@ function Login({ setUser }) {
         email: '',
         password: ''
     })
+    const [ errors, setErrors ] = useState({})
     
     function handleSubmit(e) {
         e.preventDefault();
@@ -23,11 +24,13 @@ function Login({ setUser }) {
                     setUser(user)
                     history.push("/")
                 })
-            } else {
-                res.json().then(error => console.log(error))
+             } else {
+                res.json().then(errorResponse => setErrors(errorResponse))
             }
         })
     }
+
+    console.log(errors.error)
     
     function handleChange(e) {
         const key = e.target.name;
@@ -42,6 +45,7 @@ function Login({ setUser }) {
                 <form id="login-form" onSubmit={handleSubmit}>
                     <input name="email" placeholder="Email" className="user-input" onChange={handleChange}></input>
                     <input name="password" type="password" placeholder="Password" className="user-input" onChange={handleChange}></input>
+                    {errors ? <div className="error-container"><p className="error">{errors.error}</p></div> : <div></div>}
                     <input type="submit" value="Login" className="form-button"></input>
                 </form>
                 <div id="call-to-signup">
