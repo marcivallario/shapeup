@@ -23,8 +23,8 @@ function NavBar({ user, setUser }) {
                     </NavLink>
                 </div>
             <nav>
-                <p>Welcome, {user.first_name} {user.last_name}.</p>
                 <ul>
+                    <li>Welcome, {user.first_name} {user.last_name}.</li>
                     <li><NavLink
                             to="/" 
                             exact
@@ -39,7 +39,7 @@ function NavBar({ user, setUser }) {
                             }}> 
                         Generate
                         </NavLink></li>
-                    <li onClick={handleLogout}>Logout</li>
+                    <li><button className="auth-button" onClick={handleLogout}>Logout</button></li>
                 </ul>
             </nav>
         </div>
