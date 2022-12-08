@@ -30,10 +30,6 @@ function App() {
       }
     }, [user])
 
-
-
-  // console.log('User: ', user)
-
   return (
     <div className="App">
       <NavBar user={user} setUser={setUser}/>
